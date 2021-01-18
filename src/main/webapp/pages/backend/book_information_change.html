@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/book_information_change.css">
+</head>
+<body>
+<div  class="con" id="app">
+    <h1>编辑商品信息</h1>
+    <div class="container" >
+        <div class="photo"> <img  src="/img/3_31064_1574925059_001.png"></img>  </div>
+        <div class="info">
+            <div><div>名称： </div><input type="text" v-model="book.bookName"> </div>
+            <div><div>作者：</div><input type="text"v-model=book.author></div>
+            <div><div>ISBN： </div><input type="text"v-model=book.isbn></div>
+            <div><div>出版社： </div><input type="text"v-model=book.publisher></div>
+            <div><div>库存：</div><input type="text"v-model=book.count></div>
+            <div><div>定价：</div><input type="text"v-model=book.salePrice></div>
+            <div><div>售价：</div><input type="text"v-model=book.price></div>
+            <div><div>简介：</div><input  class="p1" type="text"v-model=book.introduce></div>
+            <div class="butt">
+                <button @click="doChange" type="button">确定</button>
+                <button @click="deCancel"type="button">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/vue.js" ></script>
+<script type="text/javascript" src="/js/axios.min.js" ></script>
+<script type="text/javascript" src="/layui/layui.js" ></script>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js" ></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            book:{},//当前图书的详情
+
+        },
+        mounted:function () {
+            //1. 获取传递的图书id
+            var bid = window.localStorage.getItem("bid");
+            //2. 根据bid向后端发送请求，获取图书详情
+            axios.get("/books/getBookById",{
+                params:{
+                    bid:bid
+                }
+            }).then(function (res) {
+                //将获取到的图书详情给vm的book属性赋值
+                vm.book = res.data.data;
+            })
+        },
+        methods: {
+            doChange: function () {
+                    //将用户数据提交到后台
+                    axios.post("/bookChange/change", this.book)
+                        .then(function (res) {
+                            //根据返回的状态码进行判断
+                            if (res.data.code == 0) {
+                                alert(res.data.msg);
+                                window.location.href = "/pages/book_detail.html";
+                            } else {
+                                alert(res.data.msg);
+                            }
+                        })
+                },
+            doCancle:function () {
+                window.location.href = "/pages/book_detail.html";
+            }
+        }
+    })
+</script>
+</body>
+</html>

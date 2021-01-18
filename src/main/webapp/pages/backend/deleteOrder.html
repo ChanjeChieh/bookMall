@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="/layui/layui.js"></script>
+
+<div id="app">
+
+    <!--遍历当前页所有的数据-->
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>订单号</th>
+            <th>创建时间</th>
+            <th>用户id</th>
+            <th>订单价格</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody v-for="order in ordersList">
+        <tr>
+            <td>{{order.oid}}</td>
+            <td>{{order.createtime}}</td>
+            <td>{{order.uid}}</td>
+            <td>{{order.orderPrice}}</td>
+            <td>
+                <button @click="deleteOrderById(order.oid)">删除</button>
+                <button @click="gotoUpdate(order.oid)">编辑</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.min.js"></script>
+<script type="text/javascript">
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            loginUser:null,
+            ordersList:[],
+        },
+        mounted: function () {
+            var loginUser =  window.sessionStorage.getItem("loginUser");
+            if(loginUser != null){
+                this.loginUser = JSON.parse(loginUser)
+            }
+            axios.get("/orders/selectAll")
+                    .then(function(res){
+                        vm.ordersList = res.data.data;
+                    })
+        },
+        methods:{
+            deleteOrderById:function(oid){
+                axios.get("/orders/deleteOrderById", {
+                    params:{
+                        oid:oid
+                    }
+                }).then(function (res){
+                    if(res.data.code==0){
+                        location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                })
+            },
+            gotoUpdate:function (oid) {
+                window.localStorage.setItem("oid",oid);
+                window.location.href="/pages/backend/updateOrder.html";
+            }
+        }
+    })
+
+</script>
+</html>

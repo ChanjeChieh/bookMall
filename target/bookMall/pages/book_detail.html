@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="icon" href="https://www.szbookmall.com/favicon.ico">
+		<title>图书详情</title>
+		<link href="/css/cultural_details_merchant_mycart.079a84ba.css" rel="prefetch">
+		<link href="/css/details.27b2fd3b.css" rel="prefetch">
+		<link href="/css/details_mycart_orderPay_search.b5f435f0.css" rel="prefetch">
+		<link href="/js/cultural_details_merchant_mycart.4022eafb.js" rel="prefetch">
+		<link href="/js/details.9caf8576.js" rel="prefetch">
+		<link href="/js/details_merchant_submitorder.ecbe09f1.js" rel="prefetch">
+		<link href="/js/details_mycart_orderPay_search.bd179746.js" rel="prefetch">
+		<link href="/css/app.5ca165e5.css" rel="preload" as="style">
+		<link href="/css/chunk-vendors.68bf6ad5.css" rel="preload" as="style">
+		<link href="/js/app.06589e7e.js" rel="preload" as="script">
+		<link href="/js/chunk-vendors.89a26db2.js" rel="preload" as="script">
+		<link href="/css/chunk-vendors.68bf6ad5.css" rel="stylesheet">
+		<link href="/css/app.5ca165e5.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/details_mycart_orderPay_search.b5f435f0.css">
+		<link rel="stylesheet" href="/layui/css/layui.css" />
+		<script charset="utf-8" src="/js/details_mycart_orderPay_search.bd179746.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/cultural_details_merchant_mycart.079a84ba.css">
+		<script charset="utf-8" src="/js/cultural_details_merchant_mycart.4022eafb.js"></script>
+		<script charset="utf-8" src="/js/details_merchant_submitorder.ecbe09f1.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/details.27b2fd3b.css">
+		<link rel="stylesheet" href="/css/rep.css">
+		<script charset="utf-8" src="/js/details.9caf8576.js"></script>
+
+	</head>
+	<body>
+		<div data-v-0fa58336="" id="app">
+			<div data-v-737dc7a5="" data-v-0fa58336="" class="logoandsearchbox margin-auto max-width clearfix" style="display: none;">
+				<div data-v-737dc7a5="" class="fl">
+					<div data-v-737dc7a5="" class="logo router-link-active"><img data-v-737dc7a5="" src="/img/pc_logo.5cb2ed14.png"
+						 alt=""></div>
+				</div>
+				<div data-v-737dc7a5="" class="fr right-box">
+					<form data-v-737dc7a5="" class="fl search-box"><input data-v-737dc7a5="" type="search" placeholder="书名、作者、ISBN"
+						 class="searchInput">
+						<div data-v-737dc7a5="" class="search-btn out-line">搜全站</div>
+						<div data-v-737dc7a5="" class="search-btn hart on">搜本店</div>
+						<ul data-v-737dc7a5="" class="search-list" style="display: none;"></ul>
+					</form>
+					<div data-v-737dc7a5="" class="fl top-icon">
+						<div data-v-737dc7a5="" class="icon-cart"></div>
+						<!---->
+						<div data-v-737dc7a5="" class="top-cart-list-box" style="display: none;">
+							<div data-v-737dc7a5="" class="list-box"></div>
+							<div data-v-737dc7a5="" class="top-cart-footer clearfix">
+								<div data-v-737dc7a5="" class="fl left-text">合计（不含运费）<span data-v-737dc7a5="" class="red totalPrice">￥</span></div>
+								<div data-v-737dc7a5="" class="fr right-btn">去购物车结算</div>
+							</div>
+						</div>
+					</div>
+					<div data-v-737dc7a5="" class="fl top-icon">
+						<div data-v-737dc7a5="" class="message"></div>
+					</div>
+					<div data-v-737dc7a5="" class="fl top-icon">
+						<div data-v-737dc7a5="" class="person-icon"></div>
+					</div>
+				</div>
+			</div>
+			<!---->
+			<div data-v-0fa58336="" class="common-container">
+				<div data-v-74b53b74="" data-v-0fa58336="">
+					<div data-v-74b53b74="" class="detailsContainer max-width margin-auto">
+						<div data-v-74b53b74="" class="breadcrumb">
+							<div data-v-74b53b74="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb"><span data-v-74b53b74=""
+								 class="el-breadcrumb__item"><span role="link" class="el-breadcrumb__inner is-link">首页</span>》</span><span
+								 data-v-74b53b74="" class="el-breadcrumb__item" aria-current="page"><span role="link" class="el-breadcrumb__inner">{{book.bookName}}</span><i
+									 class="el-breadcrumb__separator el-icon-arrow-right"></i></span></div>
+						</div>
+						<div data-v-74b53b74="" class="productBox clearfix">
+							<div data-v-74b53b74="" class="left-img-box fl">
+								<div data-v-74b53b74="" class="middle-imgbox position-relative">
+									<img data-v-74b53b74="" alt="" class="img-position-center" :src="book.imageUrl" lazy="loaded"/>
+								</div>
+							</div>
+							<div data-v-74b53b74="" class="right-product-details fr">
+								<div data-v-74b53b74="" class="title-box">
+									<h5 data-v-74b53b74="" class="title">{{book.bookName}}</h5>
+									<p data-v-74b53b74="" class="title-desc">{{book.introduce}}</p>
+								</div>
+								<div data-v-74b53b74="" class="type-box">
+									<div data-v-74b53b74="" class="book-classif" style="font-size: 12px;">
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">作者</span><span data-v-74b53b74="">{{book.author}}</span></div>
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">出版社</span><span data-v-74b53b74="">{{book.publisher}}</span></div>
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">ISBN</span><span data-v-74b53b74="">{{book.isbn}}</span></div>
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">出版时间</span><span data-v-74b53b74="">{{book.publishTime}}</span></div>
+									</div>
+									<div data-v-74b53b74=""></div>
+									<div data-v-74b53b74="" class="piaowu-box" style="display: none;">
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">地址</span> </p>
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">活动时间</span> </p>
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">预订时间</span> </p>
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">有效期</span> </p>
+									</div>
+									<div data-v-74b53b74="" class="price-box">
+										<span data-v-74b53b74="" class="text">价格</span><span data-v-74b53b74="" class="price">￥{{book.price}}</span>
+										<span data-v-74b53b74="" class="line-price">￥{{book.salePrice}}</span></div>
+									<div data-v-74b53b74="" style="margin-top: 10px; margin-bottom: 10px; display: none;"><span data-v-74b53b74=""
+										 class="canUseGroupVipPay"><span data-v-74b53b74="" class="canUseIcon"></span>可使用团体会员余额支付</span></div>
+								</div>
+
+								<div data-v-74b53b74="" class="count-box"><span data-v-74b53b74="" class="c-text">数量</span>
+									<div style="z-index: 0" data-v-74b53b74="" class="el-input-number el-input-number--small">
+										<!--不同的按钮事件触发同样的方法-->
+										<span @click="changeNum(0)" role="button" class="el-input-number__decrease">-</span>
+										<span @click="changeNum(1)" role="button" class="el-input-number__increase">+</span>
+										<div class="el-input el-input--small">
+											<!--商品购买的数量-->
+											<input v-model="num" type="text" autocomplete="off" max="560" min="1" class="el-input__inner" role="spinbutton"
+											 aria-valuemax="NaN" aria-valuemin="1" aria-valuenow="1" aria-disabled="undefined">
+										</div>
+									</div>
+									<span data-v-74b53b74="" class="line-count">线上库存 <span data-v-74b53b74="" class="number red">{{book.count}}</span>
+										件</span>
+								</div>
+								<div data-v-74b53b74="" class="button-box">
+										<button data-v-74b53b74="" type="button" class="el-button buy"><span>立即购买 </span></button>
+										<button @click="addShopping" data-v-74b53b74="" type="button" class="el-button el-button--primary">
+											<span>加入购物车</span>
+										</button>
+										<button data-v-74b53b74="" type="button" class="el-button edter el-button--default">
+										<span><i data-v-74b53b74="" class="ivu-icon ivu-icon-ios-heart-outline" style="font-size: 26px;"></i>
+											收藏 </span></button></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/vue.js" ></script>
+		<script type="text/javascript" src="/js/axios.min.js" ></script>
+		<script type="text/javascript" src="/layui/layui.js" ></script>
+		<script type="text/javascript" src="/js/jquery-3.4.1.min.js" ></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+				    book:{},//当前图书的详情
+					loginAndRegist:"login",//控制登录注册表单切换的变量,默认是登录页面
+					num:1,//默认数量
+					inputUser:{
+				        username:"",//手机号
+						password:""//密码
+					},
+					loginUser:null //存储登录成功之后的用户信息
+				},
+				mounted:function () {
+					//1. 获取传递的图书id
+					var bid = window.localStorage.getItem("bid");
+					// 获取用户存放到sessionStorage中的用户信息
+                    var loginUser =  window.sessionStorage.getItem("loginUser");
+					if(loginUser!=null){
+					    this.loginUser = JSON.parse(loginUser)
+					}
+					//2. 根据bid向后端发送请求，获取图书详情
+					axios.get("/books/getBookById",{
+					    params:{
+					        bid:bid
+						}
+					}).then(function (res) {
+					    //将获取到的图书详情给vm的book属性赋值
+						vm.book = res.data.data;
+					})
+                },
+				methods:{
+				    //切换登录注册两个表单的方法
+                    changeButton:function () {
+						this.loginAndRegist = this.loginAndRegist=="login"?"regist":"login";
+                    },
+                    //点击执行数量的添加与减小
+                    changeNum:function(flag){
+                        //flag是0，代表较小，否则就是增加
+						if(flag==0){
+						    this.num = this.num==1?1:this.num-1
+						}else{
+						    this.num = this.num==this.book.count?this.book.count:this.num+1;
+						}
+					},
+					//点击注册
+                    doRegist:function () {
+						//目标：将用户输入的数据提交到后台，判断校验并添加
+						//1. 判断用户输入的数据是否合法
+						var regex = /^1[3|5|7|8]\d{9}$/;     //编写手机号正则
+						if(!regex.test(this.inputUser.username) || this.inputUser.password==""){//使用正则的test方法返回值为true或者false，判断是否满足正则
+						    alert("注册信息不完善");
+						}else{
+						    //将用户数据提交到后台
+							axios.post("/users/regist",this.inputUser)
+								.then(function (res) {
+									//根据返回的状态码进行判断
+									if(res.data.code==0){
+									    alert(res.data.msg);
+									    //隐藏注册弹框
+										document.getElementById("loginDiv2").style.display = "none";
+									}else{
+									    alert(res.data.msg);
+									}
+								})
+						}
+                    },
+					//点击登录
+                    doLogin:function () {
+						axios.post("/users/login",this.inputUser)
+							.then(function (res) {
+								if(res.data.code==0){
+								    //登录成功
+									//隐藏登录提示框
+                                    document.getElementById("loginDiv2").style.display = "none";
+                                    //使用会话级别存储数据的对象  sessionStorage
+									// sessionStorage也不可以直接存储json对象
+									window.sessionStorage.setItem("loginUser",JSON.stringify(res.data.data))
+									//将登录成功返回的用户对象赋值给vm.loginUser
+									vm.loginUser = res.data.data;
+								}else{
+								    alert(res.data.msg);
+								}
+							})
+                    },
+
+					//点击X号关闭登录弹框
+                    closeButton:function () {
+						document.getElementById("loginDiv2").style.display = "none";
+                    },
+					//加入购物车:
+                    addShopping:function () {
+						//判断当前用户是否登录
+						axios.post("/books/addShopping",{
+							bid:this.book.bookId,
+							num:this.num//购买数量
+						})
+							.then(function (res) {
+								if(res.data.code==0){
+								   alert(res.data.msg);
+								}else{
+								    //未登录
+									alert(res.data.msg);
+								}
+							})
+                    },
+					//退出
+                    doExit:function () {
+						axios.post("/users/exit")
+							.then(function (res) {
+							    if(res.data.code==0){
+							        alert(res.data.msg);
+							        window.sessionStorage.removeItem("loginUser");
+							        vm.loginUser = null;
+								}
+							})
+                    },
+					//跳转到购物车页面
+                    gotoShoppingCart:function () {
+						//先做登录拦截
+						axios.post("/users/check")
+							.then(function (res) {
+							    if(res.data.code==0){
+							        window.location.href = "/pages/shopping_cart.html";
+								}else{
+                                    //未登录
+                                    alert(res.data.msg);
+                                    document.getElementById("loginDiv2").style.display = "block";
+								}
+							})
+                    }
+				}
+			})
+		</script>
+	</body>
+</html>

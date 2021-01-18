@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+       .container{
+           width: 1200px;
+          /*border: 1px solid #00ff00;*/
+           margin: auto;
+       }
+        .container>.title{
+            overflow: hidden;
+            margin: auto;
+        }
+        .container>.title>li{
+            width: 120px;
+           /* border: 1px solid #0C0C0C;*/
+            float: left;
+            margin-left: 10px;
+           text-align: center ;
+        }
+        .container>.title>.l2{
+            width: 60px;
+           /* border: 1px solid #0C0C0C;*/
+            float: left;
+            margin-left: 10px;
+            text-align: center ;
+        }
+        .container>.info{
+            overflow: hidden;
+            height:90px;
+            margin-top: 10px;
+            background-color: #e6eaf2;
+        }
+        .container>.info>li{
+            float:left;
+            height:110px;
+            width: 120px;
+            margin-left: 10px;
+            text-align: center ;
+            font-family: "微软雅黑","宋体";
+            font-size: 16px;
+            vertical-align:middle;
+            padding-top:20px;
+            border:1px solid #000000 ;
+        }
+        /* 价格等 窄*/
+        .container>.info>.l1{
+            float:left;
+            height:110px;
+            width: 60px;
+            margin-left: 10px;
+            text-align: center ;
+            font-family: "微软雅黑","宋体";
+            font-size: 16px;
+            vertical-align:middle;
+            padding-top:20px;
+            border:1px solid #000000 ;
+        }
+        /**/
+        .container>.info>.l3{
+            float:left;
+            height:110px;
+            width: 120px;
+            margin-left: 10px;
+        }
+        .container>.info>.l3>button{
+            padding-top:0px;
+            float:left;
+            margin-bottom: 5px;
+            margin-left: 30px;
+            height: 30px;
+            width: 60px;
+            border: 0px;
+            font-family: "微软雅黑";
+            color: #0000FF;
+            font-size: 13px;
+            background-color: #e6eaf2;
+            border-radius: 5px;
+            text-decoration:underline;
+            letter-spacing:5px;
+        }
+    </style>
+</head>
+<body>
+
+<script src="/layui/layui.js"></script>
+<div class="container" id="app">
+
+    <form>
+        <input v-model="inputUser.username" type="text" placeholder="账号">
+        <input v-model="inputUser.password" type="password" placeholder="密码">
+        <button @click="login" type="button">登录</button>
+    </form>
+
+    <!--遍历当前页所有的数据-->
+    <div class="title">
+        <li>图片</li>
+        <li>书名</li>
+        <li>作者</li>
+        <li>出版社</li>
+        <li class="l2">价格</li>
+        <li class="l2">定价</li>
+        <li class="l2">库存</li>
+        <li>简介</li>
+        <li>操作</li>
+    </div>
+    <div class="info" v-for="book in booksList">
+        <li class="l3"><img src="book.imageUrl"></li>
+        <li>{{book.bookName}}</li>
+        <li>{{book.author}}</li>
+        <li>{{book.publisher}}</li>
+        <li class="l1">{{book.salePrice}}</li>
+        <li class="l1">{{book.price}}</li>
+        <li class="l1">{{book.count}}}</li>
+        <li>{{book.introduce}}</li>
+        <li class="l3">
+            <button type="button"> 删除</button></br>
+            <button type="button"> 编辑</button>
+        </li>
+    </div>
+
+    <div data-v-0fa58336="" id="loginDiv2" class="el-dialog__wrapper login-or-register-box" style="display: none;position:fixed; z-index:999; top:0;">
+        <div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog" style="margin-top: 15vh; width: 862px;">
+            <div class="el-dialog__header">
+                <span class="el-dialog__title"></span>
+                <button @click="closeButton" type="button" aria-label="Close" class="el-dialog__headerbtn">×</button></div>
+            <div class="el-dialog__body">
+                <div data-v-0fa58336="" class="flex-row">
+                    <div data-v-0fa58336="" class="left-img flex-grow-0">
+                        <img data-v-0fa58336="" src="/img/pcbanner.ee955524.png" alt=""></div>
+                    <div data-v-0fa58336="" class="login-box flex-grow-1">
+                        <div data-v-0fa58336="" class="store-logo">
+                            <img data-v-0fa58336="" src="/img/pc_logo.5cb2ed14.png" alt=""></div>
+                        <form v-if="loginAndRegist=='login'" data-v-0fa58336="" style="">
+                            <div data-v-0fa58336="" class="input-list"><input v-model="inputUser.username" data-v-0fa58336="" type="text" placeholder="账号"></div>
+                            <div data-v-0fa58336="" class="input-list"><input v-model="inputUser.password" data-v-0fa58336="" type="password" placeholder="密码"></div>
+                            <div data-v-0fa58336="" class="notice clearfix"><span data-v-0fa58336="" class="fl red"></span>
+                                <span data-v-0fa58336="" class="fr" style="cursor: pointer;">忘记密码</span>
+                            </div>
+                            <button @click="doLogin" data-v-0fa58336="" type="button" class="login-btn">登录</button>
+                            <!--点击注册，切换到注册页-->
+                            <p @click="changeButton"  data-v-0fa58336="" class="typedesc">注册</p>
+                            <p data-v-0fa58336="">登录注册表示同意《<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">使用协议</a>和<a
+                                    data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">隐私政策</a>》</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.min.js"></script>
+<script type="text/javascript">
+
+  var vm = new Vue({
+        el:"#app",
+        data:{
+            inputUser:{
+                username:"",
+                password:""
+            },
+            loginUser:null,
+            booksList:[],
+            updateBook:{
+                bookName:"",
+                author:"",
+                publisher:"",
+                price:0,
+                salePrice:0,
+                count:0
+            }
+        },
+        mounted: function () {
+            var loginUser =  window.sessionStorage.getItem("loginUser");
+            if(loginUser != null){
+                this.loginUser = JSON.parse(loginUser)
+            }
+            axios.get("/books/selectAll")
+                    .then(function(res){
+                        vm.booksList = res.data.data;
+                    })
+        },
+        methods:{
+            deleteBookById:function(bookId){
+                axios.get("/books/deleteBookById", {
+                    params:{
+                        id:bookId
+                    }
+                }).then(function (res){
+                    if(res.data.code==0){
+                        location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                })
+            },
+            gotoUpdate:function (bookId) {
+                window.localStorage.setItem("bookId",bookId);
+                window.location.href="/pages/backend/updateBook.html";
+            },
+            login:function(){
+                axios.post("/users/login", this.inputUser)
+                        .then(function(res){
+                            if(res.data.code==0){
+                                window.sessionStorage.setItem("loginUser",JSON.stringify(res.data.data))
+                                vm.loginUser = res.data.data;
+                            }else{
+                                alert(res.data.msg);
+                            }
+                        })
+            }
+        }
+    })
+
+</script>
+</html>

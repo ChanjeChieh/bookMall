@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)https://www.szbookmall.com/classif?category_id=580&title=%E5%9B%A2%E8%B4%AD%E7%B2%BE%E9%80%89&title=%E7%88%86%E6%AC%BE -->
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" href="https://www.szbookmall.com/favicon.ico">
+	<title>图书列表</title>
+	<link href="/css/classif.5d10a804.css" rel="prefetch">
+	<link href="/js/classif.89d72ddd.js" rel="prefetch">
+	<link href="/css/app.5ca165e5.css" rel="preload" as="style">
+	<link href="/css/chunk-vendors.68bf6ad5.css" rel="preload" as="style">
+	<link href="/js/app.06589e7e.js" rel="preload" as="script">
+	<link href="/js/chunk-vendors.89a26db2.js" rel="preload" as="script">
+	<link href="/css/chunk-vendors.68bf6ad5.css" rel="stylesheet">
+	<link href="/css/app.5ca165e5.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/rep.css">
+	<link rel="stylesheet" type="text/css" href="/css/classif.5d10a804.css">
+	<script charset="utf-8" src="/js/classif.89d72ddd.js"></script>
+</head>
+<body>
+<div data-v-0fa58336="" id="app">
+	<div data-v-0fa58336="" class="common-container">
+		<div data-v-52f9b1fc="" data-v-0fa58336="" class="classifContainer max-width margin-auto">
+			<div data-v-52f9b1fc="" class="breadcrumbCon">
+				<div data-v-52f9b1fc="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb breadcrumbs"><span
+						data-v-52f9b1fc="" class="el-breadcrumb__item"><span role="link" class="el-breadcrumb__inner is-link"> 首页
+								</span>》</span><span data-v-52f9b1fc="" class="el-breadcrumb__item"
+													 aria-current="page"><span role="link" class="el-breadcrumb__inner">{{tname}}</span><i class="el-breadcrumb__separator el-icon-arrow-right"></i></span></div>
+			</div>
+
+			<ul data-v-52f9b1fc="" class="books clearfix">
+				<!--遍历当前页所有的数据-->
+				<template v-for="book in dataShow">
+					<li data-v-52f9b1fc="" class="fl" @click="gotoDetail(book.bookId)">
+						<i data-v-52f9b1fc="" class="coverBox" >
+							<img data-v-52f9b1fc="" alt="" class="coverImg"
+								 data-src="http://image.szbookmall.com/Upload/Images/WLKJ/15/20/66/1520665_91.jpg"
+								 :src="book.imageUrl"lazy="loaded"></i>
+						<p data-v-52f9b1fc="" class="name twoLine">{{book.bookName}}</p>
+						<p data-v-52f9b1fc="" class="author oneLine">{{book.author}}</p>
+						<p data-v-52f9b1fc="" class="excerpt" style="display: none;">正版保证</p>
+						<div data-v-52f9b1fc="" class="priceCon"><span data-v-52f9b1fc="" class="price">￥{{book.price}}</span><span
+								data-v-52f9b1fc="" class="oldPrice">￥{{book.salePrice}}</span></div>
+					</li>
+				</template>
+			</ul>
+			<div data-v-52f9b1fc="" class="pagination" style="">
+				<div data-v-52f9b1fc="" class="el-pagination">
+					<button type="button" :disabled="currPage==0" @click="prevPage" class="btn-prev">《</button>
+					<ul class="el-pager">
+						<!--点击每页页码实现页面内容切换-->
+						<li style="cursor: pointer" class="number" :class="currPage+1==i?  'active': '' " v-for="i in totalPage" @click="changePage(i)">{{i}}</li>
+					</ul>
+					<button type="button" :disabled="currPage==totalPage-1" @click="nextPage" class="btn-next">》</button>
+				</div>
+			</div>
+			<div data-v-52f9b1fc="" class="nodata" style="display: none;"><img data-v-52f9b1fc="" src="/img/Blank.b0b6f803.png"
+																			   alt=""></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.min.js" ></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			tname:"",//类型名称
+			books:[],//当前类型下所有的图书集合
+			pageSize:3,//每页显示条数
+			totalPage:0,//当前列表的页数
+			pageBooks:[],//二维数组
+			currPage:0,//当前页的页码,设置从0开始的目的是跟pageBooks的下标对应起来
+			dataShow:[],//当前页显示的所有数据
+		},
+		mounted:function () {
+			// var tid = window.localStorage.getItem("tid");
+			// var tname = window.localStorage.getItem("tname");
+			var type = window.localStorage.getItem("type");
+			//1.----将type这个字符串转换为json数据格式
+			type = JSON.parse(type);
+			//this:表示当前对象
+			this.tname = type.tname;
+			var that = this;
+			//2.----根据类型id查询当前类型下所有的商品
+			axios.get("/books/getListById",{
+				params:{
+					tid:type.tid
+				}
+			})
+					.then(function (res) {
+						//异步请求的回调函数中 this已经不是当前vue这个实例了，所以可以使用如下两种方式
+						// a. 使用vm
+						// b. 在this没变之前使用that记录，直接使用that
+						that.books = res.data.data;
+						// 3.-----计算分页的页数
+						//    Math.ceil:向上取整
+						that.totalPage = that.books.length%that.pageSize==0?that.books.length/that.pageSize:Math.ceil(that.books.length/that.pageSize)
+						// 4.-----将所有的商品按照页码拆开成二维数组，数组中的每个元素都是每页所对应的商品数据
+						// 目标数据： pageBooks:[
+						//     	[1,2,3],// 第一页
+						// 		[4,5,6],// 第二页
+						// 		[7,8,9] // 第三页
+						// 	]
+						for (var i=0;i<that.totalPage;i++){
+							// 数组.slice(a,b): 截取数组的元素，从a截到b,左闭右开区间
+							//  pageBooks的第一个元素： 下标取值[0,3)的数组(前三个)
+							//  pageBooks的第二个元素： 下标取值[3,6)的数组(接着取三个)
+							//  pageBooks的第三个元素： 下标取值[6,9)的数组(接着取三个，取不满直接结束)
+							//
+							that.pageBooks[i] = that.books.slice(i*that.pageSize,(i+1)*that.pageSize);
+						}
+						//5. 根据页码作为下标获取pageBooks中对应要显示的数据
+						that.dataShow = that.pageBooks[that.currPage];
+					})
+		},
+
+		methods:{
+			//点击页码改变
+			changePage:function (i) {
+				//修改当前页的页码
+				this.currPage = i-1;
+				//根据修改之后的当前页码获取对应的数据
+				this.dataShow = this.pageBooks[this.currPage];
+			},
+			//点击上一页
+			prevPage:function () {
+				//当前页码减一
+				this.dataShow = this.pageBooks[--this.currPage];
+			},
+			//点击下一页
+			nextPage:function () {
+				//当前页码加一
+				this.dataShow = this.pageBooks[++this.currPage];
+			},
+
+			//点击将图书id传到详情页面
+			gotoDetail:function (bid) {
+				window.localStorage.setItem("bid",bid);
+				window.location.href="/pages/book_detail.html";
+			}
+		}
+	})
+</script>
+</body>
+
+</html>

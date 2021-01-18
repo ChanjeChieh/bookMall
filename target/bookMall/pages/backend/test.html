@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="https://www.szbookmall.com/favicon.ico">
+    <title>图书管理</title>
+    <link href="/js/home.87b6fbb6.js" rel="prefetch">
+    <link href="/css/app.5ca165e5.css" rel="preload" as="style">
+    <link href="/css/chunk-vendors.68bf6ad5.css" rel="preload" as="style">
+    <link href="/js/app.06589e7e.js" rel="preload" as="script">
+    <link href="/js/chunk-vendors.89a26db2.js" rel="preload" as="script">
+    <link href="/css/chunk-vendors.68bf6ad5.css" rel="stylesheet">
+    <link href="/css/app.5ca165e5.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/home.f3f31cff.css">
+    <link rel="stylesheet" href="/css/rep.css">
+    <script charset="utf-8" src="/js/home.87b6fbb6.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<script src="/layui/layui.js"></script>
+<div id="app">
+
+    <!--遍历当前页所有的数据-->
+    <table lay-even lay-skin="line" lay-size="lg">
+        <thead>
+        <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>图片</th>
+            <th>出版社</th>
+            <th>价格</th>
+            <th>促销价</th>
+            <th>库存</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody v-for="book in booksList">
+        <tr>
+            <td>{{book.bookName}}</td>
+            <td>{{book.author}}</td>
+            <td><img  :src="book.imageUrl" lazy="loaded"></td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.salePrice}}</td>
+            <td>{{book.count}}</td>
+            <td>
+                <button @click="deleteBookById(book.bookId)">删除</button>
+                <button @click="gotoUpdate(book.bookId)">编辑</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.min.js"></script>
+<script type="text/javascript">
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            loginUser:null,
+            booksList:[],
+            updateBook:{
+                bookName:"",
+                author:"",
+                publisher:"",
+                price:0,
+                salePrice:0,
+                count:0
+            }
+        },
+        mounted: function () {
+            var loginUser =  window.sessionStorage.getItem("loginUser");
+            var search = window.localStorage.getItem("searchBook");
+
+            if(loginUser != null){
+                this.loginUser = JSON.parse(loginUser)
+            }
+            axios.get("/books/searchBookBySql", {
+                params:{
+                    searchBook:search
+                }
+            }).then(function(res) {
+                vm.booksList = res.data.data;
+                console.log(vm.booksList);
+            })
+        },
+        methods:{
+            deleteBookById:function(bookId){
+                axios.get("/books/deleteBookById", {
+                    params:{
+                        id:bookId
+                    }
+                }).then(function (res){
+                    if(res.data.code==0){
+                        location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                })
+            },
+            gotoUpdate:function (bookId) {
+                window.localStorage.setItem("bookId",bookId);
+                window.location.href="/pages/backend/updateBook.html";
+            }
+        }
+    })
+
+</script>
+</html>

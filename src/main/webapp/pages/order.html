@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.szbookmall.com/user/submitOrder/1 -->
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="https://www.szbookmall.com/favicon.ico">
+    <title>订单</title>
+    <link href="/css/cultural_details_merchant_mycart.079a84ba.css" rel="prefetch">
+    <link href="/css/cultural_merchant_orderPay_submitorder.7004d066.css" rel="prefetch">
+    <link href="/css/cultural_merchant_submitorder.5507b350.css" rel="prefetch">
+    <link href="/css/details_mycart_orderPay_search.b5f435f0.css" rel="prefetch">
+    <link href="/css/home.f3f31cff.css" rel="prefetch">
+    <link href="/css/mycart.60a6206d.css" rel="prefetch">
+    <link href="/css/submitorder.74278dc5.css" rel="prefetch">
+    <link href="/js/cultural_details_merchant_mycart.4022eafb.js" rel="prefetch">
+    <link href="/js/cultural_merchant_orderPay_submitorder.74b8e949.js" rel="prefetch">
+    <link href="/js/cultural_merchant_submitorder.b73bf004.js" rel="prefetch">
+    <link href="/js/details_merchant_submitorder.ecbe09f1.js" rel="prefetch">
+    <link href="/js/details_mycart_orderPay_search.bd179746.js" rel="prefetch">
+    <link href="/js/home.87b6fbb6.js" rel="prefetch">
+    <link href="/js/mycart.4a33c6dc.js" rel="prefetch">
+    <link href="/js/submitorder.2a7230c4.js" rel="prefetch">
+    <link href="/css/app.5ca165e5.css" rel="preload" as="style">
+    <link href="/css/chunk-vendors.68bf6ad5.css" rel="preload" as="style">
+    <link href="/js/app.06589e7e.js" rel="preload" as="script">
+    <link href="/js/chunk-vendors.89a26db2.js" rel="preload" as="script">
+    <link href="/css/chunk-vendors.68bf6ad5.css" rel="stylesheet">
+    <link href="/css/app.5ca165e5.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/home.f3f31cff.css">
+    <script charset="utf-8" src="/js/home.87b6fbb6.js"></script>
+    <link rel="stylesheet" href="/css/rep.css">
+    <link rel="stylesheet" type="text/css" href="/css/details_mycart_orderPay_search.b5f435f0.css">
+    <script charset="utf-8" src="/js/details_mycart_orderPay_search.bd179746.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="/css/cultural_details_merchant_mycart.079a84ba.css">
+    <script charset="utf-8" src="/js/cultural_details_merchant_mycart.4022eafb.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/mycart.60a6206d.css">
+    <script charset="utf-8" src="/js/mycart.4a33c6dc.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="/css/cultural_merchant_orderPay_submitorder.7004d066.css">
+    <script charset="utf-8"
+            src="/js/cultural_merchant_orderPay_submitorder.74b8e949.js"></script>
+    <script charset="utf-8" src="/js/details_merchant_submitorder.ecbe09f1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/cultural_merchant_submitorder.5507b350.css">
+    <script charset="utf-8" src="/js/cultural_merchant_submitorder.b73bf004.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/submitorder.74278dc5.css">
+    <script charset="utf-8" src="/js/submitorder.2a7230c4.js"></script>
+    <style>
+        .erweima{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div data-v-0fa58336="" id="app">
+    <div data-v-737dc7a5="" data-v-0fa58336="" class="logoandsearchbox margin-auto max-width clearfix"
+         style="display: none;">
+        <div data-v-737dc7a5="" class="fl">
+            <div data-v-737dc7a5="" class="logo router-link-active"><img data-v-737dc7a5=""
+                                                                         src="/img/pc_logo.5cb2ed14.png"
+                                                                         alt=""></div>
+        </div>
+        <div data-v-737dc7a5="" class="fl merchant-title">
+            <div data-v-737dc7a5="" class="merchant-name">
+                <div data-v-737dc7a5="" class="merchant-info">
+                    <div data-v-737dc7a5="" class="merchant-info-top clearfix">
+                        <div data-v-737dc7a5="" class="left-logo fl"><img data-v-737dc7a5=""
+                                                                          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABIAEgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6ppjkINxOPr0pHbapLEBeetZdzOZm9FHQUm7Fwg5ssTXxxtiH4mqjTSN952Ptnim0VDZ2RpxjsHPrUiTSJ912H41HRSuU0nuXYb7tMOP7wq6rKwyDkHpWLUtvMYW9UPUVSkYToLeJsdKKYpDjIPynkGirOUpajL91F+pqlT533zOe2eKZWbZ3048sbFXUb62060kur2VYYIxlmb/PJ9qwJfHnh+Nd32qYj1FtIP5rUfxD5Tw+pAKtq1uGB6EfNxS/EZf+KfjBAH+lQ9B/tis5SfQ6aUINrmW4z/hYnh7/AJ+Lj/wHb/Cnw+P9AlVmW5mwpx/x7yH+S11PHrXK+BV/e+JOf+YpL/JaV5FL2TTdn9//AADotNv7XU7OK6sZlmt5BlXXvVuuS+Ho2r4hReETV7gKo6AfLwK601ojKaSdkXdPkGSjHjqKKrW7bJkPvzRVpnBVhaWhF3pafOuyZ19DTKg607q5ieMbOG98OXyzA5ijaaNlOCjqCVYH1BrlNM8Hy63oFlPd+INVYzxRzeW0u5QSM9DXba9G0uh6jGgyz27qB6kqapeB5o5vCektE6sFt0Q4OcEDBH1BqJLU6ITlCnePcxv+EHvP+hp1r/v6f8az9T8Gy6No2pXtv4g1YSIj3DBZdodwM5bHU8da9GzWH43mjh8Jaq0rqga3dAScZJGAPzpONtRwrVHJLv5IPBVnDZ+GdPEAOZoVmkZjku7AFiT9TW5Wd4cRovD+mRuCHS2jUg9iFFaNaIxm7ydwFFSQLvmRfeihJs551FF6lnUYjgSDns1Uq2WXemCOKzLmBoX9UPQ1UkTQqacrIa5m78E6JcXDz/ZXhdzubyZnQE/QHH6V01FS1c64VJQ1i7HKf8IJon927/8AAl/8altfBOh29xHN9mkleM7k86Z3APrgnFdNRU8qK9tU/mf3iAYFFLUtvCZW5OF7mqWpjJqKuyxp8XWQ/QUVdRQg2gCitErI4Jy5ncf2qORd4IPI7g0UUySnLZEgmP8AI1VaGRfvIceuOKKKlo6KVSV7MZipEhkf7qMfwooqLXZtUk4q6LMNl3lP/ARVxUAGFGMdB2oorRJI45TctyT60UUUyT//2Q=="
+                                                                          alt=""></div>
+                        <div data-v-737dc7a5="" class="fl name"></div>
+                    </div>
+                    <p data-v-737dc7a5="" class="small-title">商户地址</p>
+                    <p data-v-737dc7a5=""></p>
+                    <p data-v-737dc7a5="" class="small-title">营业时间</p>
+                    <p data-v-737dc7a5=""></p>
+                    <p data-v-737dc7a5="" class="small-title">联系电话</p>
+                    <p data-v-737dc7a5=""></p>
+                    <p data-v-737dc7a5="" class="small-title"></p>
+                    <div data-v-737dc7a5=""></div>
+                </div>
+            </div>
+            <p data-v-737dc7a5=""><img data-v-737dc7a5=""
+                                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAABYWlDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokWNgYFJJLCjIYWFgYMjNKykKcndSiIiMUmB/yMAOhLwMYgwKicnFBY4BAT5AJQwwGhV8u8bACKIv64LMOiU1tUm1XsDXYqbw1YuvRJsw1aMArpTU4mQg/QeIU5MLikoYGBhTgGzl8pICELsDyBYpAjoKyJ4DYqdD2BtA7CQI+whYTUiQM5B9A8hWSM5IBJrB+API1klCEk9HYkPtBQFul8zigpzESoUAYwKuJQOUpFaUgGjn/ILKosz0jBIFR2AopSp45iXr6SgYGRiaMzCAwhyi+nMgOCwZxc4gxJrvMzDY7v////9uhJjXfgaGjUCdXDsRYhoWDAyC3AwMJ3YWJBYlgoWYgZgpLY2B4dNyBgbeSAYG4QtAPdHFacZGYHlGHicGBtZ7//9/VmNgYJ/MwPB3wv//vxf9//93MVDzHQaGA3kAFSFl7jXH0fsAAAFYSURBVDgRrdS/SwJhHMfxK6OMkooICtqahMItgv6BWtokHFSKhpamwKX/oYagXKUlmoJqLAqRiMDFIXBRKmoqc4l+UPb+nD2EXF2P0QdePvc8933O57k7dRxvuhlawhFu8Yxr7GMO7WhIS0PPcaL01/GCLZzjAQOYRBL3mMcJPFlm5BVr6PKcrQ8M0mxDXxKrD319znD4Di3XJqsUaZsTpjjIwRU2zIBFG6DmEHm0qn4Bj+hRp4lEqK1hWjd2DxUk0GxyTLjQJG2lhCxmYROt/hQ3ONME3ekxjOIJnfBLByerCGMcd3D3pVbRHofco58/hj/rTEXNvbOm99f2Xy7SxrfrJdPe9OwV9f1izo9Q1A+3f8yB7oUU8Fu0+kuYOQea0Is4EtCV/aInp9/WGzLQ78f3afZRsIld7GARRWgVU7DKClVmyWq19zRCsI7+P8rQBfQSpvBtPgCdxkfKpANGhgAAAABJRU5ErkJggg=="
+                                       alt="" style="width: 18px;"><i data-v-737dc7a5=""
+                                                                      class="ivu-icon ivu-icon-ios-heart-outline"
+                                                                      style="font-size: 26px;"></i></p></div>
+        <div data-v-737dc7a5="" class="fr right-box">
+            <form data-v-737dc7a5="" class="fl search-box"><input data-v-737dc7a5="" type="search"
+                                                                  placeholder="书名、作者、ISBN" class="searchInput">
+                <div data-v-737dc7a5="" class="search-btn out-line">搜全站</div>
+                <div data-v-737dc7a5="" class="search-btn hart on">搜本店</div>
+                <ul data-v-737dc7a5="" class="search-list" style="display: none;"></ul>
+            </form>
+            <div data-v-737dc7a5="" class="fl top-icon">
+                <div data-v-737dc7a5="" class="icon-cart"></div>
+                <div data-v-737dc7a5="" class="cartCount">2</div>
+                <div data-v-737dc7a5="" class="top-cart-list-box" style="">
+                    <div data-v-737dc7a5="" class="list-box">
+                        <div data-v-737dc7a5="" class="cart-list clearfix b-1px-b-dashed">
+                            <div data-v-737dc7a5="" class="fl bookimg"><img data-v-737dc7a5="" alt=""
+                                                                            data-src="http://image.szbookmall.com/Upload/Images/WLKJ_V2/39/66/39666_000.jpg"
+                                                                            src="/img/default_000.jpg"
+                                                                            lazy="loading"></div>
+                            <div data-v-737dc7a5="" class="fl right-desc"><p data-v-737dc7a5="" class="name twoLine">
+                                脊柱运动与运动力学100个为什么/脊柱伤病1000个为什么</p>
+                                <p data-v-737dc7a5=""><span data-v-737dc7a5="" class="storeprice red">￥35.02</span><span
+                                        data-v-737dc7a5="" class="price">￥39.80</span><span data-v-737dc7a5=""
+                                                                                            class="fr count">X 1</span>
+                                </p></div>
+                        </div>
+                        <div data-v-737dc7a5="" class="cart-list clearfix b-1px-b-dashed">
+                            <div data-v-737dc7a5="" class="fl bookimg"><img data-v-737dc7a5="" alt=""
+                                                                            data-src="http://images.bookuu.com/book_t/30/86/69/30866933-31548.jpg"
+                                                                            src="/img/default_000.jpg"
+                                                                            lazy="loading"></div>
+                            <div data-v-737dc7a5="" class="fl right-desc"><p data-v-737dc7a5="" class="name twoLine">
+                                中国人史纲</p>
+                                <p data-v-737dc7a5=""><span data-v-737dc7a5=""
+                                                            class="storeprice red">￥121.44</span><span
+                                        data-v-737dc7a5="" class="price">￥138.00</span><span data-v-737dc7a5=""
+                                                                                             class="fr count">X 1</span>
+                                </p></div>
+                        </div>
+                    </div>
+                    <div data-v-737dc7a5="" class="top-cart-footer clearfix">
+                        <div data-v-737dc7a5="" class="fl left-text">合计（不含运费）<span data-v-737dc7a5=""
+                                                                                   class="red totalPrice">￥156.46</span>
+                        </div>
+                        <div data-v-737dc7a5="" class="fr right-btn">去购物车结算</div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-737dc7a5="" class="fl top-icon">
+                <div data-v-737dc7a5="" class="message"></div>
+            </div>
+            <div data-v-737dc7a5="" class="fl top-icon">
+                <div data-v-737dc7a5="" class="person-icon"></div>
+            </div>
+        </div>
+    </div>
+    <div data-v-0fa58336="" class="common-container">
+        <div data-v-f7076bfc="" data-v-0fa58336="" class="submitorderBox max-width margin-auto clearfix">
+            <div data-v-f7076bfc="" class="confirm-order-box"><p data-v-f7076bfc="" class="o-title">确认订单信息</p>
+                <div data-v-f7076bfc="">
+                    <div data-v-f7076bfc="" class="cart_store_book">
+                        <div data-v-f7076bfc="" class="car-list-line-box b-1px-b-dashed"><!---->
+                            <!--遍历详情-->
+                            <div v-for="orderDetail in orderDetailList"  data-v-f7076bfc="" class="car-list flex-row flex-y-center">
+                                <div data-v-f7076bfc="" class="flex-grow-0 flex-y-center goods li1"><input
+                                        data-v-f7076bfc="" type="checkbox" class="list-input-checkbox"
+                                        style="display: none;"><i data-v-f7076bfc=""><a data-v-f7076bfc=""
+                                                                                        href="https://www.szbookmall.com/detail/39666"
+                                                                                        target="_blank"><img
+                                        data-v-f7076bfc="" alt=""
+                                        src="" lazy="loaded"></a></i><a
+                                        data-v-f7076bfc="" href="https://www.szbookmall.com/detail/39666"
+                                        target="_blank" class="orderName">{{orderDetail.book.bookName}}</a></div>
+                                <div data-v-f7076bfc="" class="flex-grow-0 flex-col spec li2">
+                                    <div data-v-f7076bfc="" class="flex-x-center">暂无</div>
+                                </div>
+                                <div data-v-f7076bfc="" class="flex-grow-0 flex-x-center orderPrice li3"> {{orderDetail.book.price}}<span
+                                        data-v-f7076bfc="" class="line">¥{{orderDetail.book.salePrice}}</span></div>
+                                <div data-v-f7076bfc="" class="flex-grow-0 flex-x-center flex-y-center orderCount li4">
+                                    {{orderDetail.num}}
+                                </div>
+                                <div data-v-f7076bfc="" class="flex-grow-0 flex-x-center other li6 ">
+                                    <div data-v-f7076bfc="">
+                                        <div data-v-f7076bfc="" class="hover">待下单</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-v-f7076bfc="">
+                            <div data-v-f7076bfc="" class="leave-massage b-1px"><span data-v-f7076bfc="" class="mainred"
+                                                                                      style="font-weight: bold;">运费:￥6</span>
+                                <span data-v-f7076bfc="" class="mainred"
+                                      style="margin-left: 50px; margin-right: 30px; font-weight: bold;">合计:￥41.02</span>
+                            </div>
+                        </div>
+                        <div data-v-f7076bfc="" class="coupon-box" style="display: none;"><p data-v-f7076bfc=""
+                                                                                             class="fenlei-title">
+                            优惠券</p>
+                            <div data-v-f7076bfc="" class="clearfix list-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-f7076bfc="" class="b-1px-t count-price-box">
+                <p data-v-f7076bfc="">共 14件商品，总商品金额
+                    <span
+                            data-v-f7076bfc="">¥35.02</span></p><!----><p data-v-f7076bfc="">运费<span
+                    data-v-f7076bfc="">+¥ 6</span></p><!---->
+            </div>
+            <div data-v-f7076bfc="" class="b-1px-t-dashed count-price-box userinfo"><p data-v-f7076bfc="">应付商品总金额<span
+                    data-v-f7076bfc="" class="mainred">¥{{totalPrice}}</span></p>
+            </div>
+            <div data-v-f7076bfc="" class="group-vip-pay-password" style="display: none;">
+                <div data-v-f7076bfc="" class="input-line">团体会员支付密码 <input data-v-f7076bfc="" type="password"
+                                                                           class="b-1px"></div>
+                <p data-v-f7076bfc="" class="forgetpassword">忘记密码?</p></div>
+            <button @click="submitPay" data-v-f7076bfc="" type="button" class="el-button submit-btn fr el-button--default"><!---->
+                <!----><span> 提交订单 </span>
+            </button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.min.js"></script>
+<script>
+var vm = new Vue({
+        el:"#app",
+        data:{
+            orderDetailList:[],//订单详情列表
+            totalPrice:0
+        },
+        mounted:function(){
+            //根据oid查询订单详情表中的所有数据，并查询对应的图书详情
+            var oid = window.localStorage.getItem("oid");
+            axios.get("/orders/list",{
+                params:{
+                    oid:oid
+                }
+            }).then(function (res) {
+                vm.orderDetailList = res.data.data;
+                for(var i=0;i<vm.orderDetailList.length;i++){
+                    vm.totalPrice += vm.orderDetailList[i].num*vm.orderDetailList[i].book.price;
+                }
+            })
+        },
+        methods:{
+            submitPay:function () {
+                event.preventDefault();//阻止默认事件提交
+                var xmlhttp;
+                xmlhttp=new XMLHttpRequest();//原生的ajax
+                //原生的ajax向后端携带参数发请求
+                xmlhttp.open("GET","/pay/generateCode?oid="+window.localStorage.getItem("oid"),true);
+                //下面代码属于后端返回给前端的二维码图片的接收与解析
+                xmlhttp.responseType = "blob";//Binary large Object
+                xmlhttp.onload = function(){
+                    if (this.status == 200) {
+                        var blob = this.response;
+                        var img = document.createElement("img");
+                        img.onload = function(e) {
+							//URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的对象URL. 
+							//当你要已经用过了这个对象URL,然后要让浏览器知道这个URL已经不再需要指向对应的文件的时候,
+							//就需要调用这个方法.	
+                            window.URL.revokeObjectURL(img.src);
+                        };
+						//根据传入的参数创建一个指向该参数对象的URL. 这个URL的生命仅存在于它被创建的这个文档里，Blob对象
+                        img.src = window.URL.createObjectURL(blob);
+                        img.className = "erweima";
+                        //本来没有这个图，是根据后端返回的二维码图片，接收到之后，添加到此app div中
+                        document.getElementById("app").appendChild(img);
+                    }
+                }
+                xmlhttp.send();
+            }
+        }
+    })
+</script>
+</body>
+</html>

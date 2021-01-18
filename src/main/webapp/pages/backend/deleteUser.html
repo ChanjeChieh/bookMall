@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="/layui/layui.js"></script>
+
+<div id="app">
+
+    <!--遍历当前页所有的数据-->
+    <table lay-even lay-skin="line" lay-size="lg">
+        <thead>
+        <tr>
+            <th>用户id</th>
+            <th>用户名</th>
+            <th>权限</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody v-for="user in usersList">
+        <tr>
+            <td>{{user.uid}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.role}}</td>
+            <td>
+                <button @click="deleteUserById(user.uid)">删除</button>
+                <button @click="gotoUpdate(user.uid)">编辑</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.min.js"></script>
+<script type="text/javascript">
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            loginUser:null,
+            usersList:[],
+        },
+        mounted: function () {
+            var loginUser =  window.sessionStorage.getItem("loginUser");
+            if(loginUser != null){
+                this.loginUser = JSON.parse(loginUser)
+            }
+            axios.get("/users/selectAll")
+                    .then(function(res){
+                        vm.usersList = res.data.data;
+                    })
+        },
+        methods:{
+            deleteUserById:function(uid){
+                axios.get("/users/deleteUserById", {
+                    params:{
+                        uid:uid
+                    }
+                }).then(function (res){
+                    if(res.data.code==0){
+                        location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                })
+            },
+            gotoUpdate:function (uid) {
+                window.localStorage.setItem("uid",uid);
+                window.location.href="/pages/backend/updateUser.html";
+            }
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/book_information_change.css">
+</head>
+<body>
+<div  class="con" id="app">
+    <h1>编辑订单信息</h1>
+    <div class="container" >
+        <div class="info">
+            <div><div>订单id： </div><input type="text" v-model="order.oid"> </div>
+            <div><div>订单创建时间：</div><input type="text" v-model="order.createtime"></div>
+            <div><div>用户id： </div><input type="text" v-model="order.uid"></div>
+            <div><div>订单价格： </div><input type="text" v-model="order.orderPrice"></div>
+            <div class="butt">
+                <button @click="updateOrderById" type="button">修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/vue.js" ></script>
+<script type="text/javascript" src="/js/axios.min.js" ></script>
+<script type="text/javascript" src="/layui/layui.js" ></script>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js" ></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            order:{} //当前图书的详情
+        },
+        mounted:function () {
+            var oid = window.localStorage.getItem("oid");
+            axios.get("/orders/selectOrderById", {
+                params:{
+                    oid:oid
+                }
+            }).then(function (res) {
+                vm.order = res.data.data;
+            })
+        },
+        methods: {
+            updateOrderById: function () {
+                    axios.post("/orders/updateOrderById", this.order)
+                        .then(function (res) {
+                            if (res.data.code == 0) {
+                                alert(res.data.msg);
+                                location.reload();
+                            } else {
+                                alert(res.data.msg);
+                            }
+                        })
+                }
+        }
+    })
+</script>
+</body>
+</html>
